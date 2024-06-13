@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+import './global.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import MainPage from "./pages/main/MainPage.jsx";
-import PlayPage from "./pages/play/PlayPage.jsx";
+import MainPage from "../pages/main/MainPage.jsx";
+import PlayPage from "../pages/play/PlayPage.jsx";
 
 
 const router = createBrowserRouter([

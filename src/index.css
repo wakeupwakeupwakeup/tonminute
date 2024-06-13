@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #root {
+    @apply p-0;
+  }
+
+
+  /* Chrome, Safari и Opera */
+  .html::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE, Edge и Firefox */
+  html {
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  body {
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #FFF;
+    background-color: #101222;
+  }
+
+  section {
+    @apply mb-60;
+  }
+
+  h2 {
+    @apply text-6xl font-bold text-center uppercase;
+  }
+
+  h3 {
+    @apply text-4xl font-medium;
+  }
+
+  h4 {
+    @apply text-3xl font-bold;
+  }
+}
+
+@layer components {
+  .rooms-card {
+    @apply flex flex-col flex-1 gap-7 max-w-lg p-7 rounded-2xl bg-white/10 backdrop-blur-3xl relative z-10;
+  }
+
+  .rooms-card:before {
+    @apply rounded-2xl p-0.5;
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(225deg,rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  .rooms-card-blur {
+
+  }
+
+  .gradient {
+    background: linear-gradient(225deg, #6262D9, #9D62D9);
+  }
+
+  .gradient-button-stroke:before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(225deg,rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  .gradient-button {
+    @apply rounded-lg px-3 py-4 text-center inline-block font-normal uppercase;
+    background: linear-gradient(225deg, #6262D9, #9D62D9);
+  }
+
+  .gradient-footer {
+    background: rgb(0,6,24);
+    background: linear-gradient(90deg, rgba(0,6,24,1) 0%, rgba(147,98,217,1) 50%, rgba(0,0,0,1) 100%);
+  }
+
+  footer {
+    background: url("/footer.png") no-repeat;
+  }
+
+  .timer {
+    z-index: 20;
+    top: 0;
+    left: 50%;
+    background: #101222;
+    border-radius: 100%;
+    transform: translateX(-50%) translateY(-55%);
+  }
+
+  .timer-edge {
+    z-index: 0;
+    top: -320px;
+    left: calc(50% - 320px);
+    background: linear-gradient(to bottom, transparent 52%, #282a39 52%, #282a39 100%);
+    width: 640px;
+    height: 640px;
+    border-radius: 100%;
+  }
+
+  .glass {
+    @apply relative bg-white/10 backdrop-blur-3xl z-10;
+  }
+  .glass:before {
+    z-index: -10;
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:linear-gradient(225deg,rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  .censor-text {
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .toggle-container {
+    position: relative;
+    width: 100px;
+    height: 56px;
+  }
+
+  .language-toggle {
+    display: none;
+  }
+
+  .toggle-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 56px;
+    border: 2px solid white;
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    padding: 0px;
+    background-color: unset;
+    line-height: 12.4px;
+  }
+
+  .toggle-circle {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #6262D9, #9D62D9);
+  }
+
+  .language-toggle:checked + .toggle-label .toggle-circle {
+    transform: translateX(41px);
+  }
+
+  .lang {
+    color: grey;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1;
+    transition: color 0.3s;
+  }
+
+  .language-toggle:checked + .toggle-label .lang.en {
+    color: grey;
+  }
+
+  .language-toggle:checked + .toggle-label .lang.ru {
+    color: white;
+  }
+
+  .language-toggle:not(:checked) + .toggle-label .lang.en {
+    color: white;
+  }
+
+  .language-toggle:not(:checked) + .toggle-label .lang.ru {
+    color: grey;
+  }
+
+  .outer-circle {
+    z-index: 50;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

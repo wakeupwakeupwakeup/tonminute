@@ -15,19 +15,19 @@ export default function PlayPage() {
     const [radius, setRadius] = useState(90);
 
     const calculateDashOffset = () => {
-        const circleLength = 2 * Math.PI * 260; // длина окружности (2πr)
+        const circleLength = 2 * Math.PI * 260;
         return circleLength + (time / 60) * circleLength;
     };
 
     const calculateDashArray = () => {
-        const circleLength = 2 * Math.PI * 260; // длина окружности (2πr)
+        const circleLength = 2 * Math.PI * 260;
         return [circleLength, circleLength];
     };
 
     useEffect(() => {
         if (time > 0) {
             const interval = setInterval(() => {
-                setTime(prevTime => (prevTime > 0 ? prevTime - 1 : 0)); // Уменьшаем время, но не ниже 0
+                setTime(prevTime => (prevTime > 0 ? prevTime - 1 : 0));
             }, 1000);
 
             return () => clearInterval(interval)
@@ -37,12 +37,12 @@ export default function PlayPage() {
     useEffect(() => {
         const interval = setInterval(() => {
             setRadius(prevRadius => {
-                const decreaseRate = 90 / time; // скорость уменьшения радиуса
+                const decreaseRate = 90 / time;
                 return prevRadius - decreaseRate;
             });
-        }, 1000); // интервал уменьшения радиуса каждую секунду
+        }, 1000);
 
-        return () => clearInterval(interval); // очистка интервала при размонтировании компонента
+        return () => clearInterval(interval);
     }, [time]);
 
 
@@ -131,9 +131,9 @@ export default function PlayPage() {
                                     </linearGradient>
                                 </defs>
                                 <circle cx="-100" cy="300" r="260" fill="none" stroke="url(#gradient)" strokeWidth="40"
-                                        strokeDasharray={calculateDashArray().join(' ')} // задаем паттерн обводки
-                                        strokeDashoffset={calculateDashOffset()} // смещение обводки
-                                        transform="rotate(-90 100 100)" // начальный поворот для старта с верхней точки
+                                        strokeDasharray={calculateDashArray().join(' ')}
+                                        strokeDashoffset={calculateDashOffset()}
+                                        transform="rotate(-90 100 100)"
                                 />
                             </svg>
                         </div>

@@ -6,7 +6,7 @@
 
 @layer base {
   #root {
-    @apply p-0;
+    @apply p-0 overflow-x-hidden;
   }
 
 
@@ -99,7 +99,9 @@
   }
 
   footer {
-    background: url("/footer.png") no-repeat;
+    background-size: cover;
+    background-image: url("/footer.png");
+    background-repeat: no-repeat;
   }
 
   .timer {
@@ -113,7 +115,7 @@
 
   .timer-edge {
     z-index: 0;
-    top: -320px;
+    top: -325px;
     left: calc(50% - 320px);
     background: linear-gradient(to bottom, transparent 52%, #282a39 52%, #282a39 100%);
     width: 640px;
@@ -165,7 +167,7 @@
     border-radius: 40px;
     position: relative;
     cursor: pointer;
-    padding: 0px;
+    padding: 0;
     background-color: unset;
     line-height: 12.4px;
   }
